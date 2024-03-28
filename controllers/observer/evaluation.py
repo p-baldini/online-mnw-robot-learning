@@ -22,7 +22,7 @@ def evaluate_step(_):
 
     # get the position of each robot
     positions = np.array([
-        np.array(supervisor.getFromDef(f"Elisa-3_{i + 1}").getPosition())[[0, 2]]
+        np.array(supervisor.getFromDef(f"Elisa-3_{i}").getPosition())[[0, 2]]
         for i in range(ROBOTS_COUNT)
     ])
 
@@ -79,8 +79,8 @@ def evaluate_step(_):
         x, y = positions[a]
 
         # check in which block multiple of 12,5 cm the robot is
-        x, y = x + 0.5, y + 0.5
-        x, y = int(x / 0.125), int(y / 0.125)
+        x, y = x + 0.75, y + 0.75
+        x, y = int(x / 0.1875), int(y / 0.1875)
 
         idx = y * 8 + x
 
