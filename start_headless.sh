@@ -43,6 +43,7 @@ pip install -r requirements.txt >> log 2>&1
 # SIMULATION START
 
 export PYTHONPATH=/usr/local/webots/lib/controller/python39:`pwd`/controllers
+export OMP_NUM_THREADS=1
 
 printf "\n\n\n" >> log
 echo "Starting '$*' simulation" | tee -a log
