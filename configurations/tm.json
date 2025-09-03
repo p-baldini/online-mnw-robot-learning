@@ -11,6 +11,7 @@
         "type":                 "T-MAZE",
         "continuous":           true,
         "starting_seed":        1,
+        "robots_count":         1,
 
         "replicas_count":       100,
         "epochs_count":         500,
@@ -24,9 +25,9 @@
     },
 
     "nn_network":           {
-        "density":              5.5,
-        "package_size":         150,
-        "wires_length":         14.0,
+        "wires_count":          1500,
+        "package_size":         500,
+        "wires_length":         40.0,
         "max_stimulation_v":    3.3
     },
 

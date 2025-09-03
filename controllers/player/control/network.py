@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from inout.loader import configs
 from nnspy import connected_component, datasheet, network_state, network_topology, nns
 
-NETWORK_DENSITY: float = configs["nn_network"]["density"]
+WIRES_COUNT: int = configs["nn_network"]["wires_count"]
 PACKAGE_SIZE: int = configs["nn_network"]["package_size"]
 WIRES_LENGTH: float = configs["nn_network"]["wires_length"]
 
@@ -26,7 +26,7 @@ def random_network(seed: int):
 
     # create the datasheet of a network with the desired density
     ds = datasheet(
-        wires_count=int(NETWORK_DENSITY * PACKAGE_SIZE ** 2 / WIRES_LENGTH ** 2),
+        wires_count=WIRES_COUNT,
         length_mean=WIRES_LENGTH,
         length_std_dev=WIRES_LENGTH * 0.35,
         package_size=PACKAGE_SIZE,
@@ -42,6 +42,9 @@ def random_network(seed: int):
     ns = nns.construe_circuit(ds, nt)
     ccs = nns.split_components(ds, nt, n2c, cc_count)[:cc_count.value]
     cc = max(ccs, key=lambda x: int(x.ws_count))
+
+    print(cc.ws_count)
+    print(cc.js_count)
 
     return Network(ds, nt, ns, cc)
 
