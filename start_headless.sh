@@ -30,14 +30,14 @@ Xvfb :99 -screen 0 1024x768x16 > log 2>&1 &
 ################################################################################
 # VIRTUAL ENVIRONMENT SETUP
 
-# start virtual environment (and create if it does not exists)
+# start a possibly new virtual environment and install the requirements
 if [[ ! -d venv ]]; then
-  python3 -m venv venv
+  python3 -m venv .venv
+  source .venv/bin/activate
+  pip install -r requirements.txt >> log 2>&1
+else
+  source .venv/bin/activate
 fi
-source venv/bin/activate
-
-# install pip requirements
-pip install -r requirements.txt >> log 2>&1
 
 ################################################################################
 # SIMULATION START
