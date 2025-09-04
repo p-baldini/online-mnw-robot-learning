@@ -7,6 +7,7 @@ from webots.robot import get_actuators, get_sensors, robot
 
 MAX_INPUT = configs["sensors"]["max_input"]
 MAX_OUTPUT = configs["actuators"]["max_output"]
+MIN_OUTPUT = configs["actuators"]["min_output"]
 
 
 def evaluate():
