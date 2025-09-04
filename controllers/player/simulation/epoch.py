@@ -11,6 +11,7 @@ from webots.supervisor import supervisor
 CONTINUOUS_EXPERIMENT: bool = configs["task"]["continuous"]
 EPOCHS_DURATION: int = configs["task"]["epochs_duration"]
 HISTORY_WEIGHT: float = configs["task"]["history_weight"]
+DISCOUNT_WEIGHT: float = configs["task"]["discount_weight"]
 
 
 def run_epoch(replica: Replica, _: int) -> Replica:
@@ -30,6 +31,9 @@ def run_epoch(replica: Replica, _: int) -> Replica:
 
     # backup the current Tsetlin state
     state = replica.tsetlin.state.type
+
+    # discount the best performance to permit forgetting it once it loses effectiveness
+    replica.history.best_configuration.performance *= DISCOUNT_WEIGHT
 
     # decide the working strategy at the next epoch according to the previous best and current performance
     replica.tsetlin.transit(replica.configuration.performance, replica.history.best_configuration.performance)
