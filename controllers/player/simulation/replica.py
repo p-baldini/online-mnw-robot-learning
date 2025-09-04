@@ -1,3 +1,5 @@
+import random
+
 from control.coupling import Coupling, random_coupling
 from control.network import Network, random_network
 from control.tsetlin.tsetlin import Tsetlin
@@ -11,10 +13,12 @@ from operator import __sub__
 from simulation.history import History
 from typing import Tuple
 from webots.robot import get_actuators, get_sensors, robot
+from webots.supervisor import supervisor
 
 REPLICAS_COUNT = configs["task"]["replicas_count"]
 TIME_STEP = configs["task"]["time_step_ms"]
 MAX_INPUT = configs["sensors"]["max_input"]
+MIN_OUTPUT = configs["actuators"]["min_output"]
 MAX_OUTPUT = configs["actuators"]["max_output"]
 MAX_V = configs["nn_network"]["max_stimulation_v"]
 
@@ -28,12 +32,15 @@ class Replica:
     tsetlin: Tsetlin                # the adaptation logic of the configuration
 
 
-def random_replica(seed: int):
+def random_replica(seed: int) -> Replica:
 
     # used in heterogeneous swarms to give each robot a unique seed according to the index in its name
     name = robot.getName().split(".")[-1]
     if name.isdigit():
         seed += int(name) * REPLICAS_COUNT
+
+    # set the random seed
+    random.seed(seed)
 
     nw_network = random_network(seed)
     control_configuration = random_coupling(nw_network)
@@ -73,7 +80,15 @@ def run(replica: Replica):
     # set the motors' speed according to the network output
     for motor, value in outs.items():
         motor.setPosition(float("inf"))
-        motor.setVelocity(2 + range2range(value, (0, MAX_V), (MAX_OUTPUT - 2, 0)))
+        motor.setVelocity(range2range(value, (0, MAX_V), (MAX_OUTPUT, MIN_OUTPUT)))
+
+
+def terminate_replica(replica: Replica):
+    nns.destroy_topology(replica.network.nt)
+    nns.destroy_state(replica.network.ns)
+    # nns.destroy_interface(replica.configuration.interface.c_interface) # TODO
+
+    supervisor.simulationReset()
 
 
 def range2range(value: float, in_range: Tuple[float, float] = (0, 1), out_range: Tuple[float, float] = (0, 1)) -> float:
