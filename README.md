@@ -37,6 +37,6 @@ $ mv ca res/$(date +%F-%H:%M)                                       # move the e
 
 ```
 $ cd docker
-$ docker build --network=host . --tag quay.io/p-baldini/2025-etm:1.0.0
-$ docker push quay.io/p-baldini/2025-etm:1.0.0
+$ docker build --network=host . --tag quay.io/p-baldini/2025-etm:3.0.0
+$ docker push quay.io/p-baldini/2025-etm:3.0.0
 ```
