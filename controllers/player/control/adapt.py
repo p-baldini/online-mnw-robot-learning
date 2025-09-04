@@ -34,7 +34,7 @@ def adapt(replica: Replica) -> Coupling:
 def modify_multiplier(interface: Interface):
 
     # select the sensor-to-node couplings to re-weight (min 1, max half) from the interface mapping
-    reweight_count = randrange(1, ceil(max(interface.c_interface.sources_count * 0.5, 2)))
+    reweight_count = randrange(1, ceil(max(interface.c_interface.sources_count, 2)))
     couplings = {n: i for n, i in interface.items if n in get_sensors(robot)}
     couplings = sample(list(couplings.items()), reweight_count)
 
@@ -49,7 +49,7 @@ def modify_connections(interface: Interface, component: connected_component) -> 
     couplings = {n: i for n, i in interface.items if n in get_sensors(robot)}
 
     # select the sensor-to-node couplings to re-connect (min 1, max half) from the interface mapping
-    reconnections_count = randrange(1, ceil(max(interface.c_interface.sources_count * 0.5, 2)))
+    reconnections_count = randrange(1, ceil(max(interface.c_interface.sources_count, 2)))
     sampled_couplings = sample(list(couplings.items()), reconnections_count)
 
     # select the nodes that are at least 2 junctions far from the motor nodes
