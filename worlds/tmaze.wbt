@@ -7,6 +7,7 @@ WorldInfo {
       bounceVelocity 0
     }
   ]
+  basicTimeStep 50
 }
 Viewpoint {
   orientation 1 0 0 4.71238898038469
