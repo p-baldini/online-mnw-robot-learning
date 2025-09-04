@@ -33,6 +33,8 @@ class Replica:
 
 
 def random_replica(seed: int) -> Replica:
+    # start the experiment from a clean position
+    supervisor.simulationReset()
 
     # used in heterogeneous swarms to give each robot a unique seed according to the index in its name
     name = robot.getName().split(".")[-1]
@@ -87,8 +89,6 @@ def terminate_replica(replica: Replica):
     nns.destroy_topology(replica.network.nt)
     nns.destroy_state(replica.network.ns)
     # nns.destroy_interface(replica.configuration.interface.c_interface) # TODO
-
-    supervisor.simulationReset()
 
 
 def range2range(value: float, in_range: Tuple[float, float] = (0, 1), out_range: Tuple[float, float] = (0, 1)) -> float:
