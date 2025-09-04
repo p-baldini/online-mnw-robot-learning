@@ -27,7 +27,7 @@ state_path: str = os.path.join(OUTPUT_DIRECTORY, STATE_FILE)
 couplings_path: str = os.path.join(OUTPUT_DIRECTORY, COUPLING_FILE)
 
 
-def save(enumerated_replica: Tuple[int, Replica]):
+def save(enumerated_replica: Tuple[int, Replica]) -> Replica:
 
     index, replica = enumerated_replica
 
@@ -55,6 +55,8 @@ def save(enumerated_replica: Tuple[int, Replica]):
     nns.serialize_network(ds, nt, OUTPUT_DIRECTORY.encode("utf-8"), index)
     nns.serialize_state(ds, nt, ns, OUTPUT_DIRECTORY.encode("utf-8"), index, 0)
     nns.serialize_component(cc, OUTPUT_DIRECTORY.encode("utf-8"), index, 0)
+
+    return replica
 
 
 __all__ = "save",
