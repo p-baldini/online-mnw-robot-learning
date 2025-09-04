@@ -1,2 +1,2 @@
 nnspy@git+https://github.com/p-baldini/nns.py
-numpy~=2.3.0
+numpy>=1.24.0,<2.3.0

@@ -32,3 +32,11 @@ $ git diff > ca/git-diffs                                           # save the d
 $ mkdir res                                                         # create a folder where to move the experiment data
 $ mv ca res/$(date +%F-%H:%M)                                       # move the experiment data to the folder renaming it with the current time stamp (to avoid future collision)
 ```
+
+## Docker build
+
+```
+$ cd docker
+$ docker build --network=host . --tag quay.io/p-baldini/2025-etm:1.0.0
+$ docker push quay.io/p-baldini/2025-etm:1.0.0
+```

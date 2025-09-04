@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Create a fake desktop, setup a virtual environment and open webots simulation
 # in it.
 
@@ -31,7 +31,7 @@ Xvfb :99 -screen 0 1024x768x16 > log 2>&1 &
 # VIRTUAL ENVIRONMENT SETUP
 
 # start a possibly new virtual environment and install the requirements
-if [[ ! -d venv ]]; then
+if [[ ! -d .venv ]]; then
   python3 -m venv .venv
   source .venv/bin/activate
   pip install -r requirements.txt >> log 2>&1
