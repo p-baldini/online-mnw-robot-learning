@@ -16,16 +16,17 @@
         "replicas_count":       100,
         "epochs_count":         500,
         "epochs_duration":      2000,
-        "time_step_ms":         50,
+        "time_step_ms":         100,
 
-        "history_weight":       0.7,
+        "history_weight":       1.0,
+        "discount_weight":      1.0,
 
         "max_step_prize":       1,
         "max_step_penalty":     0
     },
 
     "nn_network":           {
-        "wires_count":          1500,
+        "wires_count":          750,
         "package_size":         500,
         "wires_length":         40.0,
         "max_stimulation_v":    3.3
@@ -33,18 +34,19 @@
 
     "actuators":            {
         "active":               [ "left wheel motor", "right wheel motor" ],
+        "min_output":           -6.28,
         "max_output":           6.28,
-        "loads":                1e-3
+        "loads":                1e-4
     },
 
     "sensors":              {
         "active":               [ "ps0", "ps1", "ps2", "ps3", "ps4", "ps5", "ps6", "ps7" ],
-        "max_input":            4095,
+        "max_input":            2048,
         "multipliers":          {
             "creation_mu":            1.0,
             "creation_sigma":         0.0,
             "modification_mu":        0.0,
-            "modification_sigma":     0.5
+            "modification_sigma":     0.0
         }
     }
 }
