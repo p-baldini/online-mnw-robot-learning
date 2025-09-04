@@ -1,4 +1,5 @@
 from inout.loader import configs
+from task.area_avoidance.step import step as area_avoidance_step
 from task.collision_avoidance.step import step as collision_avoidance_step
 from task.flocking.step import step as flocking_step
 from task.foraging.step import step as foraging_step
@@ -6,6 +7,8 @@ from task.tmaze.step import step as tmaze_step
 
 TASK_TYPE = configs["task"]["type"]
 
+if TASK_TYPE == "AREA_AVOIDANCE":
+    step = area_avoidance_step
 if TASK_TYPE == "COLLISION_AVOIDANCE":
     step = collision_avoidance_step
 if TASK_TYPE == "FORAGING":
