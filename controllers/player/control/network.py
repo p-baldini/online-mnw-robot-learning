@@ -1,5 +1,3 @@
-import random
-
 from ctypes import byref, c_int
 from dataclasses import dataclass
 from inout.loader import configs
@@ -32,9 +30,6 @@ def random_network(seed: int):
         package_size=PACKAGE_SIZE,
         generation_seed=seed,
     )
-
-    # set the random seed
-    random.seed(seed)
 
     # create the network topology, state and components
     cc_count, n2c = c_int(0), (c_int * ds.wires_count)()
