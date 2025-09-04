@@ -3,7 +3,7 @@ from inout.loader import configs
 from inout.logger import logger
 from inout.saver import save
 from simulation.epoch import run_epoch
-from simulation.replica import Replica, random_replica
+from simulation.replica import Replica, random_replica, terminate_replica
 
 STARTING_SEED = configs["task"]["starting_seed"]
 REPLICAS_COUNT = configs["task"]["replicas_count"]
@@ -26,7 +26,10 @@ replicas = map(describe, replicas)
 replicas = map(lambda x: reduce(run_epoch, range(EPOCHS_COUNT), x), replicas)
 
 # commit the save of each replica results
-list(map(save, enumerate(replicas)))
+replicas = map(save, enumerate(replicas))
+
+# terminate the replica of the experiment (a.k.a., reset)
+list(map(terminate_replica, replicas))
 
 # end of the simulation
 logger.info("Simulation complete")
