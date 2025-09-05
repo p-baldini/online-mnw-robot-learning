@@ -1,2 +1,3 @@
 nnspy@git+https://github.com/p-baldini/nns.py
 numpy>=1.24.0,<2.3.0
+webots~=0.0.1
