@@ -11,20 +11,7 @@ ENV     PYTHONPATH=/home/webots/lib/controller/python39:/home/controllers
 
 RUN     pacman -S --noconfirm \
             python \
-            xorg-server-xvfb \
-            glu \
-            nss \
-            libxcomposite \
-            libxdamage \
-            libxcursor \
-            libxtst \
-            libxkbcommon \
-            alsa-lib \
-            libinput \
-            shared-mime-info \
-            libjpeg-turbo \
-            fontconfig \
-            qt5-base
+            xorg-server-xvfb
 
 ADD     configurations /home/configurations
 ADD     controllers /home/controllers
