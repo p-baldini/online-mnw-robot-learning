@@ -1,15 +1,15 @@
 version: '3.9'
 
 services:
-  ca-1-5:
+  fg-1-5:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=1
       - END_SEED=5
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -17,15 +17,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-6-10:
+  fg-6-10:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=6
       - END_SEED=10
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -33,15 +33,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-11-15:
+  fg-11-15:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=11
       - END_SEED=15
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -49,15 +49,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-16-20:
+  fg-16-20:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=16
       - END_SEED=20
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -65,15 +65,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-21-25:
+  fg-21-25:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=21
       - END_SEED=25
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -81,15 +81,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-26-30:
+  fg-26-30:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=26
       - END_SEED=30
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -97,15 +97,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-31-35:
+  fg-31-35:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=31
       - END_SEED=35
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -113,15 +113,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-36-40:
+  fg-36-40:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=36
       - END_SEED=40
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -129,15 +129,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-41-45:
+  fg-41-45:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=41
       - END_SEED=45
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -145,15 +145,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-46-50:
+  fg-46-50:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=46
       - END_SEED=50
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -161,15 +161,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-51-55:
+  fg-51-55:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=51
       - END_SEED=55
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -177,15 +177,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-56-60:
+  fg-56-60:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=56
       - END_SEED=60
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -193,15 +193,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-61-65:
+  fg-61-65:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=61
       - END_SEED=65
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -209,15 +209,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-66-70:
+  fg-66-70:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=66
       - END_SEED=70
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -225,15 +225,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-71-75:
+  fg-71-75:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=71
       - END_SEED=75
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -241,15 +241,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-76-80:
+  fg-76-80:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=76
       - END_SEED=80
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -257,15 +257,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-81-85:
+  fg-81-85:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=81
       - END_SEED=85
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -273,15 +273,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-86-90:
+  fg-86-90:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=86
       - END_SEED=90
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -289,15 +289,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-91-95:
+  fg-91-95:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=91
       - END_SEED=95
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
@@ -305,15 +305,15 @@ services:
         tmpfs:
            size: 131072
     entrypoint: "/home/docker_entrypoint.sh"
-  ca-96-100:
+  fg-96-100:
     image: quay.io/p-baldini/2025-etm:3.0.0
     environment:
-      - WORK_DIR=/home/persistent/2025-etm/ca/E/
-      - TASK=ca
-      - STRATEGY=E
+      - WORK_DIR=/home/persistent/2025-etm/fg/A/
+      - TASK=fg
+      - STRATEGY=A
       - START_SEED=96
       - END_SEED=100
-      - ARENA=collision_avoidance-classic.wbt
+      - ARENA=foraging.wbt
     volumes:
       - "data:/home/persistent"
       - type: tmpfs
