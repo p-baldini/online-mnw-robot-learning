@@ -6,7 +6,7 @@ from .loader import configs
 
 LOGGER_NAME: str = "online-mnw-robot-learning"
 LOG_FORMAT: str = "[%(asctime)s %(levelname)s]\t %(message)s"
-LOG_PATH: str = configs["output"]["path"]
+LOG_PATH: str = os.path.realpath(configs["output"]["path"])
 LOG_FILE: str = configs["output"]["log_file"]
 
 # obtain the logger instance

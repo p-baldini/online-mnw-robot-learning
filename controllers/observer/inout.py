@@ -4,7 +4,7 @@ from player.inout import configs
 from typing import List, Tuple
 
 
-OUTPUT_DIRECTORY: str = configs["output"]["path"]
+OUTPUT_DIRECTORY: str = os.path.realpath(configs["output"]["path"])
 COHESION_FILE: str = configs["output"]["cohesion_file"]
 SEPARATION_FILE: str = configs["output"]["separation_file"]
 BARYCENTER_FILE: str = configs["output"]["barycenter_file"]

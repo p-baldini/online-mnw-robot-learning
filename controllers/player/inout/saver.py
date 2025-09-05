@@ -7,7 +7,7 @@ from typing import Tuple
 from webots.robot import robot
 
 
-OUTPUT_DIRECTORY: str = configs["output"]["path"]
+OUTPUT_DIRECTORY: str = os.path.realpath(configs["output"]["path"])
 PERFORMANCE_FILE: str = configs["output"]["performance_file"]
 STATE_FILE: str = configs["output"]["state_file"]
 COUPLING_FILE: str = configs["output"]["coupling_file"]
@@ -60,7 +60,7 @@ def save(enumerated_replica: Tuple[int, Replica]) -> Replica:
 
 
 def exists(seed: int):
-    return os.path.isdir(os.path.realpath(os.path.join(OUTPUT_DIRECTORY, f"device_{seed}")))
+    return os.path.isdir(os.path.join(OUTPUT_DIRECTORY, f"device_{seed}"))
 
 
 __all__ = "save", "exists",
