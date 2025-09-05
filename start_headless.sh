@@ -25,7 +25,7 @@ export DISPLAY=:99
 export LIBGL_ALWAYS_SOFTWARE=true
 
 # start a virtual screen with Xvfb
-Xvfb :99 -screen 0 1024x768x16 > log 2>&1 &
+Xvfb :99 -screen 0 1024x768x16 2>&1 | tee log &
 
 ################################################################################
 # VIRTUAL ENVIRONMENT SETUP
@@ -34,7 +34,7 @@ Xvfb :99 -screen 0 1024x768x16 > log 2>&1 &
 if [[ ! -d .venv ]]; then
   python3 -m venv .venv
   source .venv/bin/activate
-  pip install -r requirements.txt >> log 2>&1
+  pip install -r requirements.txt 2>&1 | tee -a log &
 else
   source .venv/bin/activate
 fi
@@ -49,4 +49,4 @@ printf "\n\n\n" >> log
 echo "Starting '$*' simulation" | tee -a log
 
 # start webots simulation from .py specified file (in background)
-python $* >>log 2>&1 &
+python $* 2>&1 | tee -a log
