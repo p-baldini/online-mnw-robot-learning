@@ -59,4 +59,8 @@ def save(enumerated_replica: Tuple[int, Replica]) -> Replica:
     return replica
 
 
-__all__ = "save",
+def exists(seed: int):
+    return os.path.isdir(os.path.realpath(os.path.join(OUTPUT_DIRECTORY, f"device_{seed}")))
+
+
+__all__ = "save", "exists",
