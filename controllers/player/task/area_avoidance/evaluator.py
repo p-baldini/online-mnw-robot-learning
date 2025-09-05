@@ -19,7 +19,7 @@ def evaluate():
     # get motors velocities and make them in range 0-1
     speeds = [motor.getVelocity() for _, motor in get_actuators(robot).items()]
     speeds = [range2range(value, (0, MAX_OUTPUT)) for value in speeds]
-    print(speeds)
+
     # calculate average speed and direction of the robot
     average_speed = sum(speeds) / 2.0
     directions = 1 - abs(reduce(sub, speeds))
