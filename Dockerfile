@@ -2,10 +2,10 @@ FROM    pbaldini/webots2021b-nnsc
 WORKDIR /home
 ENV     LD_LIBRARY_PATH="/usr/local/lib"
 
-RUN     add-apt-repository ppa:deadsnakes/ppa \
+RUN     add-apt-repository universe \
             && apt update \
-            && apt install -y python3.13 python3.13-venv \
-            && apt remove -y python3.8
+            && apt remove -y python3.8 python3.8-venv \
+            && apt install -y python3.9 python3.9-venv
 
 COPY    configurations /home/configurations
 COPY    controllers /home/controllers
