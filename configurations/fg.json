@@ -14,7 +14,7 @@
         "robots_count":         1,
 
         "replicas_count":       100,
-        "epochs_count":         500,
+        "epochs_count":         1000,
         "epochs_duration":      2000,
         "time_step_ms":         100,
 
@@ -41,7 +41,7 @@
 
     "sensors":              {
         "active":               [ "ls0", "ls1", "ls2", "ls3", "ls4", "ls5", "ls6", "ls7", "gs0", "gs2" ],
-        "max_input":            2048,
+        "max_input":            1024,
         "multipliers":          {
             "creation_mu":          1.0,
             "creation_sigma":       0.0,

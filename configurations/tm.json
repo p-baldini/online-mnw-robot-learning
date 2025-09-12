@@ -14,14 +14,15 @@
         "robots_count":         1,
 
         "replicas_count":       100,
-        "epochs_count":         500,
+        "epochs_count":         1000,
         "epochs_duration":      2000,
         "time_step_ms":         100,
 
         "history_weight":       1.0,
+        "discount_weight":      1.0,
 
-        "max_step_prize":       10,
-        "max_step_penalty":     -1
+        "max_step_prize":       1,
+        "max_step_penalty":     0
     },
 
     "nn_network":           {
@@ -40,7 +41,7 @@
 
     "sensors":              {
         "active":               [ "ps0", "ps7", "gs0" ],
-        "max_input":            2048,
+        "max_input":            1024,
         "multipliers":          {
             "creation_mu":          1.0,
             "creation_sigma":       0.0,
