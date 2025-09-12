@@ -27,5 +27,7 @@
       "performance-stagnation": 2,
       "performance-decrease":   1
     }
-  ]
+  ],
+
+  "random": []
 }

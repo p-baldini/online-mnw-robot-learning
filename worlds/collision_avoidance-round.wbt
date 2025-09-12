@@ -1,0 +1,101 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  basicTimeStep 50
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 1 0 0 4.71238898038469
+  position -8.67473416342176e-17 2.8790325041128515 -2.517424466162318e-18
+  follow "e-puck"
+  followType "None"
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+CircleArena {
+  radius 0.5
+  floorAppearance Appearance {
+    material Material {
+      ambientIntensity 1
+      emissiveColor 0.5 0.5 0.5
+    }
+  }
+  wallThickness 0.1
+  subdivision 8
+}
+DEF evolvable E-puck {
+  translation -2.20392e-07 0 -0.37
+  rotation 0 1 0 -1.5707953071795862
+  controller "player"
+  supervisor TRUE
+}
+Solid {
+  children [
+    Solid {
+      translation 0.225 0 0
+      children [
+        Shape {
+          appearance BrushedAluminium {
+          }
+          geometry Box {
+            size 0.2 0.1 0.1
+          }
+        }
+      ]
+    }
+    Solid {
+      translation -0.225 0 0
+      children [
+        Shape {
+          appearance BrushedAluminium {
+          }
+          geometry Box {
+            size 0.2 0.1 0.1
+          }
+        }
+      ]
+      name "solid(1)"
+    }
+    Solid {
+      translation -0.325 0 0
+      children [
+        Shape {
+          appearance BrushedAluminium {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.05
+            subdivision 8
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    Solid {
+      translation 0.325 0 0
+      children [
+        Shape {
+          appearance BrushedAluminium {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.05
+            subdivision 8
+          }
+        }
+      ]
+      name "solid(3)"
+    }
+    Shape {
+      appearance BrushedAluminium {
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.25
+        subdivision 8
+      }
+    }
+  ]
+}

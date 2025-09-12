@@ -7,14 +7,14 @@
 
   "operation": [],
 
-  "adaptation": [
+  "adaptation": [],
+
+  "random": [
     {
       "id":                     0,
       "performance-increase":   0,
       "performance-stagnation": 0,
       "performance-decrease":   0
     }
-  ],
-
-  "random": []
+  ]
 }
