@@ -1,3 +1,4 @@
+import os
 import random
 
 from control.coupling import Coupling, random_coupling
@@ -7,6 +8,8 @@ from ctypes import c_double
 from dataclasses import dataclass
 from functools import reduce
 from inout.loader import configs
+from inout.logger import logger, new_log
+from logging import Handler
 from math import copysign
 from nnspy import nns
 from operator import __sub__
@@ -15,6 +18,7 @@ from typing import Tuple
 from webots.robot import get_actuators, get_sensors, robot
 from webots.supervisor import supervisor
 
+LOG_PATH: str = os.path.realpath(configs["output"]["path"])
 REPLICAS_COUNT = configs["task"]["replicas_count"]
 TIME_STEP = configs["task"]["time_step_ms"]
 MAX_INPUT = configs["sensors"]["max_input"]
@@ -30,6 +34,7 @@ class Replica:
     configuration: Coupling         # the actual control configuration
     history: History                # the history of tried configurations and the holder of the best controller known
     tsetlin: Tsetlin                # the adaptation logic of the configuration
+    log_handler: Handler            # the log handler of this replica
 
 
 def random_replica(seed: int) -> Replica:
@@ -41,13 +46,18 @@ def random_replica(seed: int) -> Replica:
     if name.isdigit():
         seed += int(name) * REPLICAS_COUNT
 
+    # create the data structures composing a replica
+    nw_network = random_network(seed)
+
     # set the random seed
     random.seed(seed)
 
-    nw_network = random_network(seed)
     control_configuration = random_coupling(nw_network)
     history = History(Coupling(control_configuration.interface.copy()))
-    return Replica(nw_network, control_configuration, history, Tsetlin())
+    handler = new_log(os.path.join(LOG_PATH, f"device_{seed}"))
+    logger.addHandler(handler)
+
+    return Replica(nw_network, control_configuration, history, Tsetlin(), handler)
 
 
 def run(replica: Replica):
@@ -89,6 +99,7 @@ def terminate_replica(replica: Replica):
     nns.destroy_topology(replica.network.nt)
     nns.destroy_state(replica.network.ns)
     # nns.destroy_interface(replica.configuration.interface.c_interface) # TODO
+    logger.removeHandler(replica.log_handler)
 
 
 def range2range(value: float, in_range: Tuple[float, float] = (0, 1), out_range: Tuple[float, float] = (0, 1)) -> float:
