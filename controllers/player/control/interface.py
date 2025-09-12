@@ -66,13 +66,13 @@ class Interface:
     def __str__(self):
         return (
             "sources index: " +
-            ", ".join(map(str, self.__nns_interface.sources_index[:self.__nns_interface.sources_count])) + "\n" +
+            ", ".join(map(str, self.__nns_interface.sources_index[:self.__nns_interface.sources_count])) + " | " +
             "grounds index: " +
-            ", ".join(map(str, self.__nns_interface.grounds_index[:self.__nns_interface.grounds_count])) + "\n" +
+            ", ".join(map(str, self.__nns_interface.grounds_index[:self.__nns_interface.grounds_count])) + " | " +
             "loads index: " +
-            ", ".join(map(str, self.__nns_interface.loads_index[:self.__nns_interface.loads_count])) + "\n" +
+            ", ".join(map(str, self.__nns_interface.loads_index[:self.__nns_interface.loads_count])) + " | " +
             "loads weight: " +
-            ", ".join(map(str, self.__nns_interface.loads_weight[:self.__nns_interface.loads_count])) + "\n" +
+            ", ".join(map(str, self.__nns_interface.loads_weight[:self.__nns_interface.loads_count])) + " | " +
             self.__internal.__str__()
         )
 
