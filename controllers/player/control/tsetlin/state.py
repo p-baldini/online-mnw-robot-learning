@@ -9,6 +9,7 @@ class State:
         OPERATION = 0
         ADAPTATION = 1
         EXPLORATION = 2
+        RANDOM = 3
 
     class Transition(Enum):
         PERFORMANCE_INCREASE = 0
@@ -28,6 +29,8 @@ def str2phase(s: str) -> State.Type:
         return State.Type.EXPLORATION
     elif s == "adaptation":
         return State.Type.ADAPTATION
+    elif s == "random":
+        return State.Type.RANDOM
     return State.Type.OPERATION
 
 

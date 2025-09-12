@@ -20,7 +20,8 @@ class Tsetlin:
         self.states = [State() for _ in range(
             len(tsetlin_configs["exploration"]) +
             len(tsetlin_configs["operation"]) +
-            len(tsetlin_configs["adaptation"])
+            len(tsetlin_configs["adaptation"]) +
+            len(tsetlin_configs["random"])
         )]
 
         # set up the tsetlin main state, current state and its stagnation tolerance
@@ -30,7 +31,7 @@ class Tsetlin:
 
         # set up the Tsetlin states
         for phase, states in filter(
-                lambda x: x[0] in ["exploration", "operation", "adaptation"],
+                lambda x: x[0] in ["exploration", "operation", "adaptation", "random"],
                 tsetlin_configs.items()
         ):
             for state in states:
