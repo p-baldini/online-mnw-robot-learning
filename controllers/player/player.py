@@ -1,9 +1,10 @@
+import os
+
 from functools import reduce
 from inout.loader import configs
 from inout.logger import logger
 from inout.saver import save, exists
 from itertools import filterfalse
-from os import EX_OK
 from simulation.epoch import run_epoch
 from simulation.replica import Replica, random_replica, terminate_replica
 from webots.supervisor import supervisor
@@ -35,10 +36,13 @@ replicas = map(lambda x: reduce(run_epoch, range(EPOCHS_COUNT), x), replicas)
 replicas = map(save, enumerate(replicas, start=STARTING_SEED))
 
 # terminate the replica of the experiment (a.k.a., reset)
-list(map(terminate_replica, replicas))
+replicas = map(terminate_replica, replicas)
+
+# execute all the commands for each replica
+list(replicas)
 
 # end of the simulation
 logger.info("Simulation complete")
 
 # exit webots
-supervisor.simulationQuit(EX_OK)
+supervisor.simulationQuit(os.EX_OK)
