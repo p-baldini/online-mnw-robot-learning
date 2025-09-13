@@ -46,7 +46,7 @@
             "creation_mu":            1.0,
             "creation_sigma":         0.0,
             "modification_mu":        0.0,
-            "modification_sigma":     0.0
+            "modification_sigma":     2.0
         }
     }
 }
